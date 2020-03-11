@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block task %}
+<div class="p-3 mt-3 bg-secondary text-white d-flex justify-content-between align-items-center">Taken <span class="badge badge-primary badge-pill">{{ tasks_amount }}</span></div>
+    <ul class="list-group">
+    {% for task in tasks %}
+        <li class="list-group-item">
+            {% if task.done %} <strike> {% endif %}{{ task.content }} {% if task.done %} </strike>{% endif %}<br>
+            <a href="/task_done/{{ task.id }}">doorhalen</a>
+            <a href="/task_delete/{{ task.id }}">verwijderen</a>
+        </li>
+    {% endfor %}
+    </ul>
+
+
+<form action="/task" method="post">
+  <div class="formgroup">
+    <input class="form-control" placeholder="..." type="text" name="content">
+    <input class="btn btn-secondary form-control" type = "submit" value="Voeg taak toe..">
+  </div>
+</form>
+
+{% endblock task %}
+
+{% block issue %}
+<div class="p-3 mt-3 bg-secondary text-white d-flex justify-content-between align-items-center">Actuele storingen<span class="badge badge-primary badge-pill">{{ issues_amount }}</span></div>
+<ul class="list-group">
+{% for issue in issues %}
+    <li class="list-group-item">
+        {% if issue.done %} <strike> {% endif %}{{ issue.content }} {% if issue.done %} </strike>{% endif %}<br>
+        <a href="/issue_done/{{ issue.id }}">doorhalen</a>
+        <a href="/issue_delete/{{ issue.id }}">verwijderen</a>
+
+    </li>
+{% endfor %}
+</ul>
+
+
+<form action="/issue" method="post">
+  <div class="formgroup">
+    <input class="form-control" placeholder="..." type="text" name="content">
+    <input class="btn btn-secondary form-control" type = "submit" value="Voeg storing toe..">
+  </div>
+</form>
+
+{% endblock issue %}
