@@ -4,9 +4,9 @@
     <ul class="list-group">
     {% for task in tasks %}
         <li class="list-group-item">
-            {% if task.done %} <strike> {% endif %}{{ task.content }} {% if task.done %} </strike>{% endif %}<br>
-            <a href="/task_done/{{ task.id }}">doorhalen</a>
-            <a href="/task_delete/{{ task.id }}">verwijderen</a>
+            {% if task.done %} <strike> {% endif %}{{ task.content }} {% if task.done %} </strike>{% endif %}<br><br>
+            <a href="/task_done/{{ task.id }}"><i class="material-icons">check_circle_outline</i></a>
+            <a href="/task_delete/{{ task.id }}"><i class="material-icons float-right">delete_outline</i></a>
         </li>
     {% endfor %}
     </ul>
@@ -26,9 +26,9 @@
 <ul class="list-group">
 {% for issue in issues %}
     <li class="list-group-item">
-        {% if issue.done %} <strike> {% endif %}{{ issue.content }} {% if issue.done %} </strike>{% endif %}<br>
-        <a href="/issue_done/{{ issue.id }}">doorhalen</a>
-        <a href="/issue_delete/{{ issue.id }}">verwijderen</a>
+        {% if issue.done %} <strike> {% endif %}{{ issue.content }} {% if issue.done %} </strike>{% endif %}<br><br>
+        <a href="/issue_done/{{ issue.id }}"><i class="material-icons">check_circle_outline</i></a>
+        <a href="/issue_delete/{{ issue.id }}"><i class="material-icons float-right">delete_outline</i></a>
 
     </li>
 {% endfor %}
